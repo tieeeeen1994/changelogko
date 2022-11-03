@@ -18,7 +18,7 @@ $ bundle install
 
 Refer to:
 ```
-$ changelogko -h
+$ bundle exec changelogko -h
 ```
 
 ## Credits

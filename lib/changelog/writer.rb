@@ -44,7 +44,7 @@ class Changelog::Writer
 
     return if size.zero?
 
-    file.puts("## #{type.name.captialize} (#{size} count/s)\n")
+    file.puts("## #{type.name.capitalize} (#{size} count/s)\n")
 
     write_lines(lines, file)
   end
