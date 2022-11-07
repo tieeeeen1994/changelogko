@@ -12,6 +12,7 @@ class Changelog::OptionParser
 
     parser = option_parser(options)
 
+    argv = ['-h'] if argv.empty?
     parser.parse!(argv)
 
     options.title = argv.join(' ').strip.squeeze(' ').tr("\r\n", '') unless options.release
@@ -25,16 +26,7 @@ class Changelog::OptionParser
       release_option(opts, options)
       type_option(opts, options)
       help_option(opts)
-
-      opts.on('') do
-        output_help(opts)
-      end
     end
-  end
-
-  def self.output_help(opts)
-    $stdout.puts opts
-    raise ProcessEnded
   end
 
   def self.release_option(opts, options)
@@ -52,7 +44,8 @@ class Changelog::OptionParser
 
   def self.help_option(opts)
     opts.on('-h', '--help', 'Show help') do
-      output_help(opts)
+      $stdout.puts opts
+      raise ProcessEnded
     end
   end
 end
