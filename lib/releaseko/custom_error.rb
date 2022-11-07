@@ -1,4 +1,5 @@
 module Releaseko
+  # Custom Error object for Releaseko
   class CustomError
     attr_reader :message, :code
 

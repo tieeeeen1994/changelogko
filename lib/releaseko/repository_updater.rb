@@ -1,4 +1,5 @@
 module Releaseko
+  # Class that is responsible for updating the repository.
   class RepositoryUpdater
     def self.perform
       puts 'Updating remote repository'

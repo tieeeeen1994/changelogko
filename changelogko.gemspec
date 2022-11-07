@@ -12,5 +12,7 @@ Gem::Specification.new do |s|
              'bin/changelogko', 'bin/releaseko']
   s.homepage = 'https://github.com/tieeeeen1994/changelogko'
   s.license = 'MIT'
-  s.executables = ['changelogko', 'releaseko']
+  s.executables = %w[changelogko releaseko]
+  s.required_ruby_version = '>= 2.5.3'
+  s.metadata['rubygems_mfa_required'] = 'true'
 end

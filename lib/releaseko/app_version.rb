@@ -1,6 +1,7 @@
 module Releaseko
+  # Class responsible for managing the file ./metadata/app-version.
   class AppVersion
-    METHODS = ['major', 'minor', 'build'].freeze
+    METHODS = %w[major minor build].freeze
     FILE_PATH = File.join(Dir.pwd, 'metadata', 'app-version').freeze
 
     attr_reader :method, :breakdown

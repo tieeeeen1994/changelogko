@@ -1,3 +1,4 @@
+# Class responsible for writing the change logs and collating them.
 class Changelog::Writer
   def self.call(collection)
     generate_change_log(collection)

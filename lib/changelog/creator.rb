@@ -1,3 +1,4 @@
+# Class responsible for creating the file.
 class Changelog::Creator
   def self.call(options)
     changelog = Changelog.new(options, :options)

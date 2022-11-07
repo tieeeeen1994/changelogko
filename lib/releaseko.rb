@@ -1,3 +1,4 @@
+require 'English'
 require 'fileutils'
 require 'releaseko/custom_error'
 require 'releaseko/app_version'

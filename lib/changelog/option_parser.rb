@@ -1,3 +1,4 @@
+# Class responsible for parsing options and detecting arguments passed for Changelogko.
 class Changelog::OptionParser
   Options = Struct.new(
     :release,
@@ -21,19 +22,37 @@ class Changelog::OptionParser
     ::OptionParser.new do |opts|
       opts.banner = "Usage: changelogko [options] [title]\n\n Options:\n"
 
-      opts.on('-r', '--release', 'Create release from unreleased directory') do |_value|
-        options.release = true
-      end
+      release_option(opts, options)
+      type_option(opts, options)
+      help_option(opts)
 
-      type_desc = "Type of changelog, options are: #{TYPES.map(&:name).join(', ')}"
-      opts.on('-t', '--type [string]', String, type_desc) do |value|
-        options.type = value
+      opts.on('') do
+        output_help(opts)
       end
+    end
+  end
 
-      opts.on('-h', '--help', 'Show help') do
-        $stdout.puts opts
-        raise ProcessEnded
-      end
+  def self.output_help(opts)
+    $stdout.puts opts
+    raise ProcessEnded
+  end
+
+  def self.release_option(opts, options)
+    opts.on('-r', '--release', 'Create release from unreleased directory') do |_value|
+      options.release = true
+    end
+  end
+
+  def self.type_option(opts, options)
+    type_desc = "Type of changelog, options are: #{TYPES.map(&:name).join(', ')}"
+    opts.on('-t', '--type [string]', String, type_desc) do |value|
+      options.type = value
+    end
+  end
+
+  def self.help_option(opts)
+    opts.on('-h', '--help', 'Show help') do
+      output_help(opts)
     end
   end
 end

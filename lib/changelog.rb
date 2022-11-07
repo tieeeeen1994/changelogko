@@ -1,3 +1,4 @@
+# Main class that manages the set of actions for managing change logs.
 class Changelog
   attr_reader :file_path, :errors, :type, :title, :options, :source, :author
 
@@ -5,9 +6,9 @@ class Changelog
     @source = source
     @errors = []
     if source == :file
-    @file_path = params
+      @file_path = params
     else
-    @options = params
+      @options = params
     end
 
     load_data
@@ -59,18 +60,18 @@ class Changelog
 
   def load_from_source
     if source == :file
-    yaml = YAML.safe_load(file)
-    initialize_props_from_yaml(yaml)
+      yaml = YAML.safe_load(file)
+      initialize_props_from_yaml(yaml)
     else
-    initialize_props_from_options
+      initialize_props_from_options
     end
   end
 
   def initialize_props_from_yaml(yaml)
     {
-      title: yaml.fetch('title') { nil },
-      type: yaml.fetch('type') { nil },
-      author: yaml.fetch('author') { nil }
+      title: yaml.fetch('title', nil),
+      type: yaml.fetch('type', nil),
+      author: yaml.fetch('author', nil)
     }
   end
 
@@ -98,9 +99,9 @@ class Changelog
 
   def error_full_messages
     if source == :file
-    errors.collect { |error| "#{error} at #{file_path}" }
+      errors.collect { |error| "#{error} at #{file_path}" }
     else
-    errors
+      errors
     end
   end
 
@@ -110,9 +111,9 @@ class Changelog
 
   def save
     File.open(generate_file_name, 'w') do |file|
-    file.puts("title: #{title}")
-    file.puts("author: #{author}")
-    file.puts("type: #{type}")
+      file.puts("title: #{title}")
+      file.puts("author: #{author}")
+      file.puts("type: #{type}")
     end
   end
 
