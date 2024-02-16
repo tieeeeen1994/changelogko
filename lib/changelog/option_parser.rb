@@ -44,7 +44,7 @@ class Changelog::OptionParser
   def self.types_option(opts)
     opts.on('-T', '--types', 'List available types.') do
       TYPES.each do |type|
-        $stdout.puts "#{type.name}\t#{type.description}"
+        $stdout.puts "#{type.name}#{type.description}"
       end
       raise ProcessEnded
     end
