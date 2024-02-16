@@ -43,6 +43,10 @@ Refer to:
 ```
 $ bundle exec releaseko -h
 ```
+or
+```
+$ bundle exec rko -h
+```
 
 Releaseko looks for `metadata/app-version` for the project's versioning. It will automatically increment this file based on mode.
 
