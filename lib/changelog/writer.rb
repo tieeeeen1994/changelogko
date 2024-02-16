@@ -5,6 +5,7 @@ class Changelog::Writer
   def self.call(collection, no_archive = false)
     generate_change_log(collection)
     archive_old_change_log unless no_archive
+    publish_change_log
     clear_unreleased_logs
   end
 
@@ -25,7 +26,9 @@ class Changelog::Writer
     old_change_log_location = "changelogs/archive-#{date_str}.md"
     system("mv #{::CHANGE_LOG_NAME} #{old_change_log_location}")
     puts 'Archive old Changelog'
+  end
 
+  def self.publish_change_log
     system("mv #{::TEMP_CHANGE_LOG_NAME} #{::CHANGE_LOG_NAME}")
     puts "Renamed #{::TEMP_CHANGE_LOG_NAME} to #{::CHANGE_LOG_NAME}"
   end
@@ -33,6 +36,7 @@ class Changelog::Writer
   def self.clear_unreleased_logs
     puts 'Clearing changelogs/unreleased'
     system('rm changelogs/unreleased/*')
+    system('rmdir changelogs/unreleased')
   end
 
   def self.write_title(file)
