@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Main class that manages the set of actions for managing change logs.
 class Changelog
   attr_reader :file_path, :errors, :type, :title, :options, :source, :author
@@ -19,7 +21,7 @@ class Changelog
     load_data
     check_data
 
-    errors.size.zero?
+    errors.empty?
   end
 
   def validate!

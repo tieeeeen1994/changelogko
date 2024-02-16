@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Releaseko
   # Custom Error object for Releaseko
   class CustomError

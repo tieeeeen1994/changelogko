@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Releaseko
   # Wrapper for Changelogko.
   class ChangelogWrapper

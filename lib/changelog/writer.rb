@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 # Class responsible for writing the change logs and collating them.
 class Changelog::Writer
-  def self.call(collection)
+  def self.call(collection, no_archive = false)
     generate_change_log(collection)
-    archive_old_change_log
+    archive_old_change_log unless no_archive
     clear_unreleased_logs
   end
 
@@ -18,7 +20,7 @@ class Changelog::Writer
   end
 
   def self.archive_old_change_log
-    system('mkdir -p changelogs ')
+    system('mkdir -p changelogs')
     date_str = Time.now.strftime('%b-%d-%Y-%H-%M-%S')
     old_change_log_location = "changelogs/archive-#{date_str}.md"
     system("mv #{::CHANGE_LOG_NAME} #{old_change_log_location}")
@@ -30,8 +32,6 @@ class Changelog::Writer
 
   def self.clear_unreleased_logs
     puts 'Clearing changelogs/unreleased'
-    # system 'mkdir -p changelogs/.trash'
-    # system('mv changelogs/unreleased/* changelogs/.trash/')
     system('rm changelogs/unreleased/*')
   end
 

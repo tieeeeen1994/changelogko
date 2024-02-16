@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class responsible for creating the file.
 class Changelog::Creator
   def self.call(options)

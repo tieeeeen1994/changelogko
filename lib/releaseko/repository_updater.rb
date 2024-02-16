@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Releaseko
   # Class that is responsible for updating the repository.
   class RepositoryUpdater

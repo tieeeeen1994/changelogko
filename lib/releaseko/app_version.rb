@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Releaseko
   # Class responsible for managing the file ./metadata/app-version.
   class AppVersion
@@ -41,7 +43,7 @@ module Releaseko
         'major' => version_numbers[0],
         'minor' => version_numbers[1],
         'build' => version_numbers[2],
-        'other' => version_numbers[3..-1].join('.')
+        'other' => version_numbers[3..].join('.')
       }
     end
 
