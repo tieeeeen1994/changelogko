@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Gem::Specification.new do |s|
   s.name = 'changelogko'
   s.version = File.read('metadata/app-version').strip
