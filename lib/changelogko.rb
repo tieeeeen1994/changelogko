@@ -14,15 +14,15 @@ ProcessEnded = Class.new(StandardError)
 Type = Struct.new(:name, :description)
 
 TYPES = [
-  Type.new('added', 'Add something new like a new feature.'),
-  Type.new('changed', 'Alter something that already exists.'),
-  Type.new('deprecated', 'Depreciate an existing feature.'),
-  Type.new('enhanced', 'Improve an existing feature.'),
-  Type.new('fixed', 'Fix a bug.'),
-  Type.new('optimized', 'Render a feature efficient and effective.'),
-  Type.new('other', 'Etc.'),
-  Type.new('removed', 'Delete a feature.'),
-  Type.new('secured', 'Establish a security layer.')
+  Type.new('added', "\t\tAdd something new like a new feature."),
+  Type.new('changed', "\t\tAlter something that already exists."),
+  Type.new('deprecated', "\tDepreciate an existing feature."),
+  Type.new('enhanced', "\tImprove an existing feature."),
+  Type.new('fixed', "\t\tFix a bug."),
+  Type.new('optimized', "\tRender a feature efficient and effective."),
+  Type.new('other', "\t\tEtc."),
+  Type.new('removed', "\t\tDelete a feature."),
+  Type.new('secured', "\t\tEstablish a security layer.")
 ].freeze
 
 require 'changelog'
