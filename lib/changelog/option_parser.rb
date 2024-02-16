@@ -59,6 +59,11 @@ class Changelog::OptionParser
   def self.help_option(opts)
     opts.on('-h', '--help', 'Show help.') do
       $stdout.puts opts
+      $stdout.puts 'Adding a .changelogko file in the root of the working directory will allow to automatically ' \
+                   'append the contents of the file as options to every `changelogko` (or `cko`) command. ' \
+                   'For example, assume the .changelogko file contains "--no-archive". ' \
+                   'For every changelogko command, it will automatically append --no-archive, ' \
+                   'as such: bundle exec changelogko -r --no-archive.'
       raise ProcessEnded
     end
   end

@@ -18,12 +18,22 @@ $ bundle install
 
 ## Usage
 
-### Changelogko 
+### Changelogko
 
 Refer to:
 ```
 $ bundle exec changelogko -h
 ```
+or
+```
+$ bundle exec cko -h
+```
+
+Adding a `.changelogko` file in the root of the working directory will allow to automatically append the contents of the file as options to every `changelogko` (or `cko`) command. For example, assume the `.changelogko` file contains:
+```
+--no-archive
+```
+For every `changelogko` command, it will automatically append `--no-archive`, as such: `bundle exec changelogko -r --no-archive`.
 
 Changelogko will create the needed files if they don't exist yet.
 
