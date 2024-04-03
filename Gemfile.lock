@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    changelogko (1.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -30,8 +35,10 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
+  changelogko!
   rubocop
 
 RUBY VERSION
